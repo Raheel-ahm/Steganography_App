@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card auth-card">
+    <h1>Create Account</h1>
+    <p>Your password will be stored as a hash. That hash is used to create the encryption key.</p>
+    <form method="POST">
+        <label>Username</label>
+        <input type="text" name="username" required>
+        <label>Password</label>
+        <input type="password" name="password" required>
+        <button type="submit">Sign Up</button>
+    </form>
+    <p>Already have an account? <a href="{{ url_for('login') }}">Login</a></p>
+</section>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Welcome, {{ username }}</h1>
+<div class="grid">
+    <section class="card">
+        <h2>Encrypt and Hide Text</h2>
+        <form method="POST" action="{{ url_for('encode') }}" enctype="multipart/form-data">
+            <label>Upload medium image (PNG/BMP only)</label>
+            <input type="file" name="image" accept=".png,.bmp" required>
+            <label>Secret text</label>
+            <textarea name="secret_text" rows="6" required></textarea>
+            <button type="submit">Encrypt and Hide</button>
+        </form>
+    </section>
+
+    <section class="card">
+        <h2>Extract and Decrypt Text</h2>
+        <form method="POST" action="{{ url_for('decode') }}" enctype="multipart/form-data">
+            <label>Upload encoded image</label>
+            <input type="file" name="encoded_image" accept=".png,.bmp" required>
+            <button type="submit">Decode</button>
+        </form>
+    </section>
+</div>
+{% endblock %}
